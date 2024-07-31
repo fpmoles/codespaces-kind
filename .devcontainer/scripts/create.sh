@@ -5,17 +5,18 @@ function install_postgres_client(){
 }
 
 function create_kind_cluster(){
+    echo "Waiting for Docker daemon to be ready"
     while (! docker ps &> /dev/null )
     do
-        echo "Waiting for Docker daemon to be ready"
         echo -n "."
         sleep 1
     done
     echo ""
-    echo "Creating Kind Cluster"
-    kind create cluster --config ./config/kind_cluster.yaml --wait 1m
+    echo ""
+    echo "*** Creating Kind Cluster ***"
+    kind create cluster --config /workspaces/codespaces_kind/config/kind_cluster.yaml --wait 1m
 }
 
-
+clear
 install_postgres_client
 create_kind_cluster
