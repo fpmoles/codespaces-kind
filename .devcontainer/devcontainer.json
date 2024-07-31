@@ -9,7 +9,7 @@
     "--init"
   ],
   "features": {
-    "ghcr.io/devcontainers/features/docker-in-docker:2": {},
+    "ghcr.io/devcontainers/features/docker-in-docker:2": {"moby": true},
     "ghcr.io/devcontainers-contrib/features/kind:1": {}
   },
   "mounts": [
