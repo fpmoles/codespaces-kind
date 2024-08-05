@@ -30,7 +30,8 @@
         "golang.go",
         "ms-python.python",
         "ms-azuretools.vscode-docker",
-        "ms-ossdata.vscode-postgresql"
+        "ms-ossdata.vscode-postgresql",
+        "vscode-icons-team.vscode-icons"
       ]
     }
   },

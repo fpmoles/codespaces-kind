@@ -19,4 +19,4 @@ echo "Installing postgres"
 ../config/postgres/deploy.sh
 sleep 60
 
-./populate-db.sh
+./populate_postgres
