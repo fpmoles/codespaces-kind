@@ -16,5 +16,6 @@ Once your container comes up, there a couple of steps you need to execute.
 * psql: the postgresql client is installed
 
 ## Helper scripts
-* db
+* db_connect: loads the environment and connects to the database in the terminal
+
  

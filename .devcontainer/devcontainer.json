@@ -5,7 +5,7 @@
   },
   "overrideCommand": false,
   "remoteEnv": {
-    "PATH": "${containerEnv:PATH}:/scripts",
+    "PATH": "${containerEnv:PATH}:/workspaces/codespaces_kind/scripts"
   },
   "features": {
     "ghcr.io/devcontainers/features/docker-in-docker:2": {},
