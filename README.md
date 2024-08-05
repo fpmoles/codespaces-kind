@@ -16,6 +16,7 @@ Once your container comes up, there a couple of steps you need to execute.
 * psql: the postgresql client is installed
 
 ## Helper scripts
+_Note: These scripts are available on the PATH, you can execute them anywhere in the codespace environemnt from the terminal_
 * create_envlist: creates an env.list file in the current directory with the environment variables needed for connection for a running app (see notes about DB_HOST in [Connection Data](#connection-data))
 * db_connect: loads the environment and connects to the database in the terminal
 * db_details: outputs the database connection details (see notes about DB_HOST in [Connection Data](#connection-data))
@@ -32,13 +33,13 @@ Once your container comes up, there a couple of steps you need to execute.
 ## Connection Data
 | Port | Tool | Notes |
 | ---- | ---- | ---- |
-| 5432 | Postgresql | Docker to docker requires port from `ifconfig` instead of localhost |
+| 5432 | Postgresql | Docker to docker connections requires port from `ifconfig` instead of localhost, look for the docker ip |
 | 30000 | Prometheus | Access through the ports tab to load in browser, Pod and Service Monitors can be added |
 | 31000 | Grafana | Access through the ports tab, leverage admin:prom-operator for access |
 | 32000 | Alert Manager | |
 
 ## Customizing
-* to add a script to the path, add it to the `/scripts/` directory
+* to add a script to the PATH, add it to the `/scripts/` directory
 
 
  
