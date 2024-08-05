@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+export PGPASSWORD=$(kubectl get secrets/localdb-secret -n postgres --template={{.data.password}} | base64 -d)
+export PGUSER=$(kubectl get secrets/localdb-secret -n postgres --template={{.data.username}} | base64 -d)
+
+echo "DB_HOST: localhost"
+echo "DB_PORT: 5432"
+echo "DB_NAME: localdb"
+echo "DB_USERNAME: ${PGUSER}"
+echo "DB_PASSWORD: ${PGPASSWORD}"

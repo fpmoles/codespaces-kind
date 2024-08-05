@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+touch env.list
+
+export PGPASSWORD=$(kubectl get secrets/localdb-secret -n postgres --template={{.data.password}} | base64 -d)
+export PGUSER=$(kubectl get secrets/localdb-secret -n postgres --template={{.data.username}} | base64 -d)
+
+
+echo "DB_HOST=localhost" >> env.list
+echo "DB_PORT=5432" >> env.list
+echo "DB_NAME=localdb" >> env.list
+echo "DB_USERNAME="$PGUSER  >> env.list
+echo -n "DB_PASSWORD="$PGPASSWORD >> env.list

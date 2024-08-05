@@ -16,7 +16,9 @@ Once your container comes up, there a couple of steps you need to execute.
 * psql: the postgresql client is installed
 
 ## Helper scripts
+* create_envlist: creates an env.list file in the current directory with the environment variables needed for connection for a running app (see notes about DB_HOST in [Connection Data](#connection-data))
 * db_connect: loads the environment and connects to the database in the terminal
+* db_details: outputs the database connection details (see notes about DB_HOST in [Connection Data](#connection-data))
 * destroy_k8s: deletes the kind cluster and all resources for a fresh start, usually followed up with `install_k8s`
 * install_k8s: creates a kind cluster and installs postgres, prometheus with grafana, and ingress-nginx
 * populate_postgres: loads the file `/dat/data.sql' into the database
