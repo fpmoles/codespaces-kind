@@ -4,10 +4,9 @@
     "memory": "32gb"
   },
   "overrideCommand": false,
-  "runArgs": [
-    "--privileged",
-    "--init"
-  ],
+  "remoteEnv": {
+    "PATH": "${containerEnv:PATH}:/scripts",
+  },
   "features": {
     "ghcr.io/devcontainers/features/docker-in-docker:2": {},
     "ghcr.io/devcontainers-contrib/features/kind:1": {}
@@ -20,16 +19,27 @@
     "vscode": {
       "extensions": [    
         "GitHub.github-vscode-theme",
+        "vscjava.vscode-java-pack",
+        "vscjava.vscode-java-test",
+        "vscjava.vscode-java-debug",
         "redhat.java",
         "vscjava.vscode-spring-initializr",
         "vscjava.vscode-spring-boot-dashboard",
         "vmware.vscode-spring-boot",
-        "golang.go"
+        "vmware.vscode-boot-dev-pack",
+        "golang.go",
+        "ms-python.python",
+        "ms-azuretools.vscode-docker",
+        "ms-ossdata.vscode-postgresql"
       ]
     }
   },
- 
-  "onCreateCommand": "echo PS1='\"$ \"' >> ~/.bashrc",
-  "postCreateCommand": "./.devcontainer/scripts/create.sh",
+  "remoteUser": "root",
+  "runArgs": [
+    "--privileged",
+    "--init"
+  ],
+  "onCreateCommand": "echo PS1='\"$ \"' >> ~/.bashrc && echo 'alias k=\"kubectl\"' >> ~/.bashrc",
+  "postCreateCommand": "sudo apt-get update && sudo apt-get install -y postgresql-client && sudo apt-get install -y httpie",
   "postAttachCommand": "git pull --all"
 }
